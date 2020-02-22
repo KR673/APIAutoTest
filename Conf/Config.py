@@ -1,14 +1,16 @@
 from configparser import ConfigParser
 import os
+import json
 
 class Config:
 
     def __init__(self):
         self.config = ConfigParser()
         self.conf_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.ini')
-        
+        self.config.read(self.conf_path, encoding='utf-8')
+
         self.token = self.get_conf('login', 'token')
-        self.header = self.get_conf('web', 'header')
+        self.header = json.loads(self.get_conf('web', 'header').replace("'", "\""))
 
     def get_conf(self, title, value):
         """

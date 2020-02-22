@@ -7,8 +7,8 @@ if __name__ == "__main__":
     item = 'test_case'
 
     test_case_path = './TestCase/{}.py'.format(item)
-    data_path = 'Report/{}/Json'.format(item)
-    html_path = 'Report/{}'.format(item)
+    data_path = 'Report/{}/json'.format(item)
+    html_path = 'Report/{}/html'.format(item)
 
     # 测试
     args = ['-s', '-q',test_case_path, '--alluredir', data_path]
